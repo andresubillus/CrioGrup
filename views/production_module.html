@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu2</title>
+    <style>
+        html, body{
+            background-color: rgb(221, 221, 221);
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        /* Header */
+        .header{
+            height: 5%;
+            display: flex;
+        }
+        .header input,button{
+            flex: 1;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border: 1px solid white;            
+        }
+        .button_right{
+            background-color: rgb(119, 119, 119);
+            border: 1px solid white;        
+            color: white;    
+        }
+        /* Body */
+        .body{
+            height: 90%;
+        }
+        .left{
+            float: left;
+            width: 50%;
+            height: 100%;            
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+        .right{
+            float: right;
+            width: 50%;
+            height: 85%;            
+        }
+        .provider_card{
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            padding: 3vh;
+            border: 1px solid rgb(255, 255, 255);
+            height: 20vh;
+            width: 35vh;
+            background-color: white;
+        }
+        .provider_card h3,label,button{
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .provider_card input{
+            background-color: rgb(216, 216, 216);
+            border: none;
+            border-radius: 10px;
+        }
+        .provider_form{
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            row-gap: 10px;
+            column-gap: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        /* Footer */ 
+        .footer{
+            height: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <input type="text" class="browser" value="Search">
+        <button class="button_right">VER INFORMACION DE LOS CLIENTES</button>
+        <button class="button_right">AGREGAR UN NUEVO CLIENTE</button>
+        <button class="button_right">VER PROVEEDORES</button> 
+    </div>
+    <div class="body">
+        <div class="left">
+            <div class="provider_card">
+                <h3>Informacion proveedores</h3>
+                <form class="provider_form">
+                    <label for="name">Nombre:</label>
+                    <input type="text" name="name" id="provider_name">
+                    <label for="ruc">RUC:</label>
+                    <input type="text" name="ruc" id="provider_ruc">
+                    <label for="address">Direccion:</label>
+                    <input type="text" name="address" id="provider_address">
+                    <label for="dni">DNI:</label>
+                    <input type="text" name="dni" id="provider_dni">
+                    <label for="material">Materia prima:</label>
+                    <input type="text" name="material" id="provider_material">                                             
+                </form>
+                <br>
+                <div class="buttons">
+                    <button class="new">NUEVO</button>
+                    <button class="search">BUSCAR</button>
+                    <button class="edit">EDITAR</button>
+                    <button class="delete">ELIMINAR</button>
+                </div>
+                <br>
+            </div>
+        </div>
+        <div class="right">
+            <div class="client_card">
+                <h3>Informacion Clientes</h3>
+                <form class="client_form">            
+                    <label for="name">Nombre:</label>
+                    <input type="text" name="name" id="client_name">
+                    <label for="ruc">RUC:</label>
+                    <input type="text" name="ruc" id="client_ruc">
+                    <label for="address">Direccion:</label>
+                    <input type="text" name="address" id="client_address">
+                    <label for="dni">DNI:</label>
+                    <input type="text" name="dni" id="client_dni">
+                    <label for="observations">Materia prima:</label>
+                    <input type="text" name="observations" id="client_observations">
+
+                    
+                </form>
+                <br>
+                <div class="buttons">
+                    <button class="new">NUEVO</button>
+                    <button class="search">BUSCAR</button>
+                    <button class="edit">EDITAR</button>
+                    <button class="delete">ELIMINAR</button>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+
+    </div>
+</body>
+</html>
