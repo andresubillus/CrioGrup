@@ -1,0 +1,94 @@
+  <div class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h4>Mantenimiento PH</h4>
+      <div>
+        <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#importantes">Importantes</button>
+        <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modalAgregar">Agregar Envase</button>
+        <button class="btn btn-secondary" onclick="mostrarInformacion()">Ver Información</button>
+      </div>
+    </div>
+
+    <table class="table table-hover table-bordered text-center bg-white">
+      <thead class="table-dark">
+        <tr>
+          <th>Código</th>
+          <th>Propietario</th>
+          <th>Fecha PH</th>
+          <th>Prioridad</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody id="tablaEnvase">
+      </tbody>
+    </table>
+  </div>
+
+  <div class="modal fade" id="modalAgregar" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <form id="formEnvase">
+          <div class="modal-header">
+            <h5 class="modal-title">Agregar / Editar Envase</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body row g-3">
+            <div class="col-md-6"><label class="form-label">Propietario</label><input type="text" class="form-control" name="propietario"></div>
+            <div class="col-md-6"><label class="form-label">Código del envase</label><input type="text" class="form-control" name="codigo"></div>
+            <div class="col-md-6"><label class="form-label">Tipo de gas</label><input type="text" class="form-control" name="gas"></div>
+            <div class="col-md-6"><label class="form-label">Unidad de medida</label><input type="text" class="form-control" name="unidad"></div>
+            <div class="col-md-6"><label class="form-label">Capacidad máxima</label><input type="text" class="form-control" name="capacidad"></div>
+            <div class="col-md-6"><label class="form-label">Volumen actual</label><input type="text" class="form-control" name="volumen"></div>
+            <div class="col-md-12"><label class="form-label">Ubicación</label><input type="text" class="form-control" name="ubicacion"></div>
+            <div class="col-md-6"><label class="form-label">Estado</label><select class="form-select" name="estado">
+              <option value="PH">PH</option>
+              <option value="Despacho">Despacho</option>
+              <option value="Observación">Observación</option>
+              <option value="Falta PH">Falta PH</option>
+            </select></div>
+            <div class="col-md-6"><label class="form-label">Fecha PH</label><input type="date" class="form-control" name="fecha_ph"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Modal de búsqueda -->
+<div class="modal fade" id="modalBusqueda" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="formBusqueda">
+        <div class="modal-header">
+          <h5 class="modal-title">Buscar Envases</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-2"><label class="form-label">Código</label><input type="text" class="form-control" name="codigo"></div>
+          <div class="mb-2"><label class="form-label">Propietario</label><input type="text" class="form-control" name="propietario"></div>
+          <div class="mb-2"><label class="form-label">Estado</label>
+            <select class="form-select" name="estado">
+              <option value="">-- Todos --</option>
+              <option value="PH">PH</option>
+              <option value="Despacho">Despacho</option>
+              <option value="Observación">Observación</option>
+              <option value="Falta PH">Falta PH</option>
+            </select>
+          </div>
+          <div class="mb-2"><label class="form-label">Fecha PH</label><input type="date" class="form-control" name="fecha"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Buscar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+  </main>
+
+</body>
