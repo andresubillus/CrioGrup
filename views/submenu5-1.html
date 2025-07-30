@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabla de Reportes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .table-reportes .text-center {
+      background-color: #2a20e8;
+      color: white;
+      font-weight: bold;
+    }
+
+    .table-reportes {
+      border: 2px solid #333333;
+      margin-top: 20px;
+    }
+
+    .table-reportes thead th {
+      background-color: #343a40;
+      color: white;
+      text-align: center;
+      border-bottom: 2px solid #333;
+    }
+
+    .table-reportes tbody td {
+      vertical-align: middle;
+      border-right: 1px solid #dee2e6;
+      text-align: center;
+    }
+
+    .options-cell {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .options-link {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .options-link:hover {
+      text-decoration: underline;
+    }
+
+    .disponibilidad-select {
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      padding: 3px 8px;
+      width: 100%;
+    }
+
+    .modal-body {
+      max-height: 70vh;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .data-table img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      padding: 10px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-xl {
+      max-width: 90%;
+    }
+    
+    /* Estilo para la imagen en el modal */
+    .modal-image {
+      max-height: 80vh;
+      width: auto;
+      margin: 0 auto;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-4">
+    <h4 class="mb-3">Tabla de Reportes</h4>
+    <table class="table table-reportes table-bordered">
+      <thead>
+        <tr>
+          <th colspan="4" class="text-center">TABLA DE REPORTES</th>
+        </tr>
+        <tr>
+          <th>CATEGORÍA</th>
+          <th>FECHA DE CREACIÓN</th>
+          <th>DISPONIBILIDAD</th>
+          <th>OPCIONES</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Reportes Generales</td>
+          <td>15 may 2024</td>
+          <td>
+            <select class="disponibilidad-select">
+              <option>GERENCIA</option>
+              <option>FINANZAS</option>
+              <option>OPERARIOS</option>
+              <option>SOLO ADMIN</option>
+            </select>
+          </td>
+          <td class="options-cell">
+            <span class="options-link ver-reporte" data-bs-toggle="modal" data-bs-target="#modalReportesGenerales">
+              VER
+            </span> |
+            <a href="../img/GRAFICO.png" class="options-link" download>DESCARGAR</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Reporte de trabajadores</td>
+          <td>22 jun 2024</td>
+          <td>
+            <select class="disponibilidad-select">
+              <option>OPERARIOS</option>
+              <option>GERENCIA</option>
+              <option>FINANZAS</option>
+              <option>SOLO ADMIN</option>
+            </select>
+          </td>
+          <td class="options-cell">
+            <span class="options-link ver-reporte" data-bs-toggle="modal" data-bs-target="#modalTrabajadores">
+              VER
+            </span> |
+            <a href="../img/TRABAJADORES.png" class="options-link" download>DESCARGAR</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Reporte Sobre Ventas Anuales</td>
+          <td>10 jul 2024</td>
+          <td>
+            <select class="disponibilidad-select">
+              <option>SOLO ADMIN</option>
+              <option>GERENCIA</option>
+              <option>FINANZAS</option>
+              <option>OPERARIOS</option>
+            </select>
+          </td>
+          <td class="options-cell">
+            <span class="options-link ver-reporte" data-bs-toggle="modal" data-bs-target="#modalVentasMensuales">
+              VER
+            </span> |
+            <a href="../img/VENTAS-ANUALES.png" class="options-link" download>DESCARGAR</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Reporte De Clientes</td>
+          <td>05 ago 2024</td>
+          <td>
+            <select class="disponibilidad-select">
+              <option>FINANZAS</option>
+              <option>GERENCIA</option>
+              <option>OPERARIOS</option>
+              <option>SOLO ADMIN</option>
+            </select>
+          </td>
+          <td class="options-cell">
+            <span class="options-link ver-reporte" data-bs-toggle="modal" data-bs-target="#modalClientes">
+              VER
+            </span> |
+            <a href="../img/CLIENTE-REPORTE.png" class="options-link" download>DESCARGAR</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modales independientes para cada imagen -->
+  <!-- Modal para Reportes Generales -->
+  <div class="modal fade" id="modalReportesGenerales" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Reportes Generales</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="../img/GRAFICO.png" alt="Reportes Generales" class="img-fluid modal-image">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para Reporte de trabajadores -->
+  <div class="modal fade" id="modalTrabajadores" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Reporte de trabajadores</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="../img/TRABAJADORES.png" alt="Reporte de trabajadores" class="img-fluid modal-image">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para Reporte de Ventas Mensuales -->
+  <div class="modal fade" id="modalVentasMensuales" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Reporte Sobre Ventas Anuales</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="../img/VENTAS-ANUALES.png" alt="Reporte de Ventas Mensuales" class="img-fluid modal-image">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para Reporte de Clientes -->
+  <div class="modal fade" id="modalClientes" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Reporte De Clientes</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="../img/CLIENTE-REPORT.png" alt="Reporte De Clientes" class="img-fluid modal-image">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
