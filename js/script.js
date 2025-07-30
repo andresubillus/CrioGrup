@@ -22,7 +22,13 @@ const opciones = [
       { nombre: 'Submenu2-2', archivo: 'submenu2-2' }
     ]
   },
-  { id: 'menu3', nombre: 'Menu 3', archivo: 'menu3' },
+  { id: 'menu3',
+    nombre: 'Menu 3',
+    submenus: [
+      {nombre: 'Submenu3-1', archivo: 'submenu3-1'},
+      {nombre: 'Submenu3-2', archivo: 'submenu3-2'},
+    ]
+  },
   { id: 'menu4', nombre: 'Menu 4', archivo: 'menu4' },
   { id: 'menu5', nombre: 'Menu 5', archivo: 'menu5' },
   { id: 'menu6', nombre: 'Menu 6', archivo: 'menu6' }
