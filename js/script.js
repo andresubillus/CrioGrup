@@ -18,7 +18,7 @@ const opciones = [
     id: 'menu2',
     nombre: 'Menu 2',
     submenus: [
-      { nombre: 'Submenu2-1', archivo: 'submenu2-1' },
+      { nombre: 'Submenu2-1', archivo: 'production_module' },
       { nombre: 'Submenu2-2', archivo: 'submenu2-2' }
     ]
   },
