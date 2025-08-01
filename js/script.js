@@ -18,20 +18,46 @@ const opciones = [
     id: 'menu2',
     nombre: 'Menu 2',
     submenus: [
-      { nombre: 'Submenu2-1', archivo: 'submenu2-1' },
+      { nombre: 'Submenu2-1', archivo: 'production_module' },
       { nombre: 'Submenu2-2', archivo: 'submenu2-2' }
     ]
   },
-  { id: 'menu3',
+
+  
+    {
+    id: 'menu3',
     nombre: 'Menu 3',
     submenus: [
-      {nombre: 'Submenu3-1', archivo: 'submenu3-1'},
-      {nombre: 'Submenu3-2', archivo: 'submenu3-2'},
+      { nombre: 'Submenu3-1', archivo: 'submenu3-1' },
+      { nombre: 'Submenu3-2', archivo: 'submenu3-2' }
     ]
   },
-  { id: 'menu4', nombre: 'Menu 4', archivo: 'menu4' },
-  { id: 'menu5', nombre: 'Menu 5', archivo: 'menu5' },
-  { id: 'menu6', nombre: 'Menu 6', archivo: 'menu6' }
+      {
+    id: 'menu4',
+    nombre: 'Menu 4',
+    submenus: [
+      { nombre: 'Submenu4-1', archivo: 'submenu4-1' },
+      { nombre: 'Submenu4-2', archivo: 'submenu4-2' }
+    ]
+  },
+
+        {
+    id: 'menu5',
+    nombre: 'Menu 5',
+    submenus: [
+      { nombre: 'Submenu5-1', archivo: 'submenu5-1' },
+      { nombre: 'Submenu5-2', archivo: 'submenu5-2' }
+    ]
+  },
+          {
+    id: 'menu6',
+    nombre: 'Menu 6',
+    submenus: [
+      { nombre: 'Submenu6-1', archivo: 'submenu6-1' },
+      { nombre: 'Submenu6-2', archivo: 'submenu6-2' }
+    ]
+  },
+>>>>>>> main
 ];
 
 // 3. Filtrar según rol
