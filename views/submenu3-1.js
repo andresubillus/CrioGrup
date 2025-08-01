@@ -156,10 +156,18 @@ function iniciarsubmenu31() {
       });
 
       cargarTabla(resultados); // Mostrar solo resultados
+      document.getElementById('volverMostrarTodos').style.display = 'block';
     }
 
     bootstrap.Modal.getInstance(document.getElementById('modalBusqueda')).hide();
   });
+
+  // Función para mostrar todos los registros de la tabla
+  window.mostrarTodosLosChoferes = function () {
+    cargarTabla(); // Mostrar todos
+    document.getElementById('volverMostrarTodos').style.display = 'none'; // Oculta el botón
+  };
+
 
   cargarTabla(); // ✅ Mostrar todos los choferes al iniciar
 }
