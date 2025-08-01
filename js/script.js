@@ -22,8 +22,6 @@ const opciones = [
       { nombre: 'Submenu2-2', archivo: 'submenu2-2' }
     ]
   },
-
-  
     {
     id: 'menu3',
     nombre: 'Menu 3',
@@ -57,7 +55,6 @@ const opciones = [
       { nombre: 'Submenu6-2', archivo: 'submenu6-2' }
     ]
   },
->>>>>>> main
 ];
 
 // 3. Filtrar según rol
