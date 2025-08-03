@@ -3,6 +3,11 @@ const rol = localStorage.getItem('rol');
 if (!rol) {
   window.location.href = 'login.html';
 }
+// 1.1 Cambiar el titulo según el rol
+const titulo = document.getElementById('titulo-menu');
+if(titulo){
+  titulo.textContent = rol === 'admin' ? 'Admin':'Operador';
+}
 
 // 2. Menú con submenús (estructura jerárquica)
 const opciones = [

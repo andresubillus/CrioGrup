@@ -10,7 +10,15 @@
 <body class="bg-light d-flex">
 
   <aside class="bg-dark text-white p-3" style="width: 250px; min-height: 100vh;">
-    <h5 class="mb-4">Menú</h5>
+    
+    <div class="d-flex align-items-center mb-4">
+      <img src="img/CrioGroup.png" alt="Logo" class="me-3" style="width: 50px; height: 50px;">
+      <div class="d-flex flex-column">
+        <h5 class="mb-1">CrioGroup</h5>
+        <span id="titulo-menu"></span>
+      </div>
+    </div>
+
     <ul id="menu-lateral" class="nav flex-column"></ul>
     </ul>
     <button class="btn btn-outline-light mt-2" onclick="logout()">Cerrar sesión</button>
