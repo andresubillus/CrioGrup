@@ -13,7 +13,7 @@ if(titulo){
 const opciones = [
   {
     id: 'menu1',
-    nombre: 'Menu 1',
+    nombre: 'Menu Envases',
     submenus: [
       { nombre: 'Submenu1-1', archivo: 'submenu1-1' },
       { nombre: 'Submenu1-2', archivo: 'submenu1-2' }
@@ -29,7 +29,7 @@ const opciones = [
   },
     {
     id: 'menu3',
-    nombre: 'Menu 3',
+    nombre: 'Menu Choferes',
     submenus: [
       { nombre: 'Submenu3-1', archivo: 'submenu3-1' },
       { nombre: 'Submenu3-2', archivo: 'submenu3-2' }
@@ -37,7 +37,7 @@ const opciones = [
   },
       {
     id: 'menu4',
-    nombre: 'Menu 4',
+    nombre: 'Menu Envases En planta',
     submenus: [
       { nombre: 'Submenu4-1', archivo: 'submenu4-1' },
       { nombre: 'Submenu4-2', archivo: 'submenu4-2' }
@@ -46,7 +46,7 @@ const opciones = [
 
         {
     id: 'menu5',
-    nombre: 'Menu 5',
+    nombre: 'Menu Reportes',
     submenus: [
       { nombre: 'Submenu5-1', archivo: 'submenu5-1' },
       { nombre: 'Submenu5-2', archivo: 'submenu5-2' }
@@ -96,12 +96,22 @@ if (menu) {
 
 // 5. Cargar contenido dinámico al hacer clic
 document.addEventListener('click', function (e) {
-  const link = e.target.closest('[data-section]');
-  if (!link) return;
+const link = e.target.closest('[data-section]');
+if (!link) return;
 
-  e.preventDefault();
-  const seccion = link.dataset.section;
+e.preventDefault();
+const seccion = link.dataset.section;
+const telon = document.getElementById('telon-animacion');
+if (!telon) return;
 
+// Mostrar el telón
+telon.classList.add('mostrar');
+
+// ⚠️ Forzar repintado (esto es lo crucial)
+telon.offsetHeight; // Esto obliga al navegador a aplicar la clase visualmente
+
+// Esperar que se vea el telón antes de cargar contenido
+setTimeout(() => {
   fetch('views/' + seccion + '.html')
     .then(res => {
       if (!res.ok) throw new Error();
@@ -113,7 +123,7 @@ document.addEventListener('click', function (e) {
 
       contenido.innerHTML = html;
 
-      // Eliminar script anterior si existe
+      // Eliminar script viejo si existe
       const oldScript = document.querySelector('#dinamic-script');
       if (oldScript) oldScript.remove();
 
@@ -131,7 +141,15 @@ document.addEventListener('click', function (e) {
     .catch(() => {
       document.getElementById('contenido-dinamico').innerHTML = `
         <div class="alert alert-danger">Error al cargar vista: ${seccion}.html</div>`;
+    })
+    .finally(() => {
+      // Ocultar telón después de otro pequeño delay
+      setTimeout(() => {
+        telon.classList.remove('mostrar');
+      }, 300);
     });
+},1000); // Tiempo para que el telón se desplace completamente
+// Pequeño retraso para asegurar que se vea la animación
 });
 
 // 6. Cerrar sesión

@@ -13,10 +13,27 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
   const encontrado = usuarios.find(u => u.usuario === user && u.clave === pass);
 
-  if (encontrado) {
-    localStorage.setItem('rol', encontrado.rol);
-    window.location.href = 'index.html';
-  } else {
-    mensaje.textContent = 'Credenciales incorrectas';
-  }
+if (encontrado) {
+  localStorage.setItem('rol', encontrado.rol);
+
+  // Mostrar mensaje personalizado
+  const mensajeBienvenida = document.getElementById('mensajeBienvenida');
+  mensajeBienvenida.textContent = `Bienvenido, ${encontrado.usuario}`;
+  mensajeBienvenida.classList.add('aparecer-bienvenida');
+
+
+  const pantalla = document.getElementById('pantallaCarga');
+  pantalla.style.display = 'flex';
+  pantalla.offsetHeight;
+  pantalla.classList.add('mostrar');
+
+  setTimeout(() => {
+    pantalla.classList.remove('mostrar');
+    pantalla.classList.add('ocultar');
+
+    setTimeout(() => {
+      window.location.href = 'index.html';
+    }, 200);
+  }, 9200);
+}
 });
