@@ -22,33 +22,47 @@ function iniciarsubmenu11() {
   }
 
   function cargarTabla(data = datosEnvases) {
-    tablaEnvases.innerHTML = '';
-    if (data.length === 0) {
-      tablaEnvases.innerHTML = `<tr><td colspan="5">No se encontraron resultados.</td></tr>`;
-      return;
-    }
-
-    data.forEach((envase, i) => {
-      const indexReal = datosEnvases.findIndex(e =>
-        e.codigo === envase.codigo &&
-        e.propietario === envase.propietario &&
-        e.fecha === envase.fecha &&
-        e.estado === envase.estado
-      );
-
-      tablaEnvases.innerHTML += `
-        <tr>
-          <td>${envase.codigo}</td>
-          <td>${envase.propietario}</td>
-          <td>${envase.fecha}</td>
-          <td>${estadoConIcono(envase.estado)}</td>
-          <td>
-            <button class="btn btn-sm btn-warning" onclick="editarEnvase(${indexReal})">Ver</button>
-            <button class="btn btn-sm btn-danger" onclick="eliminarEnvase(${indexReal})">Eliminar</button>
-          </td>
-        </tr>`;
-    });
+  tablaEnvases.innerHTML = '';
+  if (data.length === 0) {
+    tablaEnvases.innerHTML = `<tr><td colspan="5">No se encontraron resultados.</td></tr>`;
+    return;
   }
+
+  data.forEach((envase, i) => {
+    const indexReal = datosEnvases.findIndex(e =>
+      e.codigo === envase.codigo &&
+      e.propietario === envase.propietario &&
+      e.fecha === envase.fecha &&
+      e.estado === envase.estado
+    );
+
+    const fechasVencidas = ['2025-07-26', '2025-07-09'];
+    const isVencida = fechasVencidas.includes(envase.fecha);
+
+    tablaEnvases.innerHTML += `
+      <tr ${isVencida ? 'style="background-color: yellow !important;"' : ''}>
+        <td>${envase.codigo}</td>
+        <td>${envase.propietario}</td>
+        <td>
+          ${envase.fecha} 
+          ${isVencida ? `<span class="icon-warning" style="cursor:pointer;" onclick="mostrarVencidoModal('${envase.fecha}')">⚠️</span>` : ''}
+        </td>
+        <td>${estadoConIcono(envase.estado)}</td>
+        <td>
+          <button class="btn btn-sm btn-warning" onclick="editarEnvase(${indexReal})">Ver</button>
+          <button class="btn btn-sm btn-danger" onclick="eliminarEnvase(${indexReal})">Eliminar</button>
+        </td>
+      </tr>`;
+  });
+}
+window.mostrarVencidoModal = function(fecha) {
+  Swal.fire({
+    icon: 'warning',
+    title: 'Fecha Vencida',
+    text: `El envase con fecha ${fecha} ya venció.`,
+    confirmButtonText: 'Cerrar'
+  });
+};
 
   function estadoConIcono(estado) {
     const iconos = {
